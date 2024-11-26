@@ -1,0 +1,1 @@
+rute til DB "webfish\WebGoat\WebGoat.NET\bin\Debug\net8.0\NORTHWND.sqlite"
