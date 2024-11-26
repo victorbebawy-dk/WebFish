@@ -3,6 +3,7 @@ using WebGoatCore.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using Ganss.Xss; // Added HtmlSanitizer library for sanitizing input
 
 namespace WebGoatCore.Controllers
 {
@@ -33,10 +34,14 @@ namespace WebGoatCore.Controllers
         public IActionResult Reply(int entryId, string contents)
         {
             var userName = User?.Identity?.Name ?? "Anonymous";
+            
+            // Sanitize the contents before saving
+            var sanitizedContents = new HtmlSanitizer().Sanitize(contents);
+
             var response = new BlogResponse()
             {
                 Author = userName,
-                Contents = contents,
+                Contents = sanitizedContents, // Use the sanitized contents
                 BlogEntryId = entryId,
                 ResponseDate = DateTime.Now
             };
