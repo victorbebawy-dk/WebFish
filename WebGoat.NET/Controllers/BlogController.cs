@@ -31,6 +31,7 @@ namespace WebGoatCore.Controllers
         }
 
         [HttpPost("{entryId}")]
+        [ValidateAntiForgeryToken]
         public IActionResult Reply(int entryId, string contents)
         {
             var userName = User?.Identity?.Name ?? "Anonymous";
@@ -56,6 +57,7 @@ namespace WebGoatCore.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(string title, string contents)
         {
             var blogEntry = _blogEntryRepository.CreateBlogEntry(title, contents, User!.Identity!.Name!);
