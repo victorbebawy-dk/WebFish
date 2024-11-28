@@ -1,7 +1,7 @@
 # WebGoat
-# This is a copy of the excellent project https://github.com/tobyash86/WebGoat.NET. This copy is purely used for educational purposes.
+# This is a copy of the excellent project https://github.com/mesn1985/WebGoat. This copy is purely used for educational purposes.
 # For the full documentation, please read the documentation in the original repository.
-
+# 
 ## Requirements
 The project requires `.NET 8.0 SDK`
 
